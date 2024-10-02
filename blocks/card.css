@@ -1,0 +1,43 @@
+.card__image {
+  height: 413px;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+
+.card__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 353px;
+}
+
+.card__like-btn {
+  background-image: url("../images/love.svg");
+  width: 23px;
+  height: 20px;
+  border: none;
+  opacity: 40%;
+  background-color: transparent;
+}
+
+.card__like-btn:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 644px) {
+  .card__image {
+    height: 288px;
+  }
+}
