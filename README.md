@@ -22,4 +22,4 @@ a Blast learing and over coming new skills
 
 **GitHub Pages**
 
-- [link to GitHub Pages]()
+- [link to GitHub Pages](https://reyesenterprise.github.io/se_project_spots/)
