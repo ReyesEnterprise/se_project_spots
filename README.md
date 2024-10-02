@@ -6,12 +6,12 @@
 - Figma
 - Images
 - Grid
-- Resposive desine
+- Resposive design
 
 **Intro**
 
 ```
-In this project I worked on learnig Grid , figma , deployment to Github pages and responsive desine. It was a very enjoyable experiance and really learned a lot of new tricks
+In this project I worked on learnig Grid , figma , deployment to Github pages and responsive design. It was a very enjoyable experiance and really learned a lot of new tricks
 and tools to add to my tool belt. At the end of the project I was left with the confedence in building a responvise website both on desktop and mobile, thanks Triple Ten I had
 a Blast learing and over coming new skills
 ```
