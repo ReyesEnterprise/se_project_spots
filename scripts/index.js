@@ -25,14 +25,14 @@ const initialCards = [
   },
 ];
 
-// variables for opining the modal
+// variables
 
 const profileEditbutton = document.querySelector(".profile__edit-btn");
 
 const editModal = document.querySelector("#edit-profile-modal");
 const closeButton = editModal.querySelector(".modal__close-btn");
 
-// functions for opening the modal
+// functions
 
 function openModal() {
   editModal.classList.add("modal_opened");
@@ -42,7 +42,7 @@ function closeModalbtn() {
   editModal.classList.remove("modal_opened");
 }
 
-// event listener for opening the modal
+// event listeners
 
 profileEditbutton.addEventListener("click", openModal);
 
