@@ -106,6 +106,7 @@ function getCardElement(data) {
   cardImg.alt = data.name;
 
   return cardElement;
+}
 
 //
 // event listeners
