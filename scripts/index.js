@@ -98,26 +98,14 @@ function getCardElement(data) {
     .querySelector(".card")
     .cloneNode(true);
 
-  // question - why dont i have to do const cardElement = cardTemplate.querySelector(".card") then add .content and .querySelector(".card")  .cloneNode(true);
-
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImg = cardElement.querySelector(".card__image");
-
-  // question - was expection to use something like this
-  // userElement.querySelector(".user__avatar").src = "path/to/image.jpg";
-  // userElement.querySelector(".user__name").textContent = "Duke, mayor of Cormorant";
 
   cardNameEl.textContent = data.name;
   cardImg.src = data.link;
   cardImg.alt = data.name;
-  // question
-  // - how does the data that is passed her from the object not get all misked up and put in the wrong order , is it because of the "const cardElement = getCardElement(initialCards[i]);"
-  // also not sure how to pass the alt text since there is no alt object in the array do i need to add one ?
-  return cardElement;
 
-  // question
-  // i was getting an error for a while because i didnt have the retun function im guessing its needed , but why ?
-}
+  return cardElement;
 
 //
 // event listeners
@@ -133,9 +121,5 @@ editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 
 for (let i = 0; i < initialCards.length; i++) {
   const cardElement = getCardElement(initialCards[i]);
-  // why is the for loop not used inside the function
-  // is the [i] bracket i a place holder or the actual value in the array
-  // the cardElement is being used in the function on top why dosent it cause a problem
-
   cardsList.prepend(cardElement);
 }
