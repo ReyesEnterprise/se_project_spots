@@ -1,6 +1,8 @@
-//
-// arrays
-//
+/* 
+
+                                           Arrays  
+
+*/
 
 const initialCards = [
   {
@@ -29,21 +31,27 @@ const initialCards = [
   },
 ];
 
-//
-// variables
-//
+/* 
+
+                                      Variables   
+
+*/
 
 const profileEditbutton = document.querySelector(".profile__edit-btn");
 
-const editModal = document.querySelector("#edit-profile-modal");
+const editProfileModal = document.querySelector("#edit-profile-modal");
 
-const closeButton = editModal.querySelector(".modal__close-btn");
+const closeButton = editProfileModal.querySelector(".modal__close-btn");
 
-//
-// form variables
-//
+const newPostButton = document.querySelector(".profile__plus-btn");
 
-const editProfileForm = editModal.querySelector(".modal__form");
+/* 
+
+                                     Edit form Variables   
+
+*/
+
+const editProfileForm = editProfileModal.querySelector(".modal__form");
 
 const nameInput = editProfileForm.querySelector("#profile-name-input");
 
@@ -53,31 +61,52 @@ const profileNameElement = document.querySelector(".profile__name");
 
 const profileJobElement = document.querySelector(".profile__discription");
 
-//
-// template variables
-//
+/* 
+
+                                     add card form Variables   
+
+*/
+const addCardModal = document.querySelector("#add-card-modal");
+
+const addCardCloseBtn = addCardModal.querySelector(".modal__close-btn");
+
+const cardForm = addCardModal.querySelector(".modal__form");
+
+const cardLinkInput = addCardModal.querySelector("#add-card-link-input");
+
+const cardNameInput = addCardModal.querySelector("#add-card-caption-input");
+
+// const likedImg = document.querySelector(".card__like-btn");
+
+/* 
+
+                                      Template variables 
+
+*/
 
 const cardTemplate = document.querySelector("#card-template");
 
 const cardsList = document.querySelector(".cards__list");
 
-//
-// functions
-//
+/* 
 
-function openModal() {
-  nameInput.value = profileNameElement.textContent;
-  jobInput.value = profileJobElement.textContent;
-  editModal.classList.add("modal_opened");
+                                        open / close functions  
+
+*/
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
 }
 
-function closeModal() {
-  editModal.classList.remove("modal_opened");
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
 }
 
-//
-// form function
-//
+/* 
+
+                                          Edit form handle functions  
+
+*/
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -86,12 +115,31 @@ function handleProfileFormSubmit(evt) {
 
   profileJobElement.textContent = jobInput.value;
 
-  closeModal();
+  closeModal(editProfileModal);
 }
 
-//
-// template function
-//
+/* 
+
+                                          card form handle functions  
+
+*/
+
+function handleCardFormSubmit(evt) {
+  evt.preventDefault();
+  const inputValues = {
+    name: cardNameInput.value,
+    link: cardLinkInput.value,
+  };
+  const cardEl = getCardElement(inputValues);
+  cardsList.prepend(cardEl);
+  closeModal(addCardModal);
+}
+
+/* 
+
+                                          Template functions   
+
+*/
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -100,27 +148,59 @@ function getCardElement(data) {
 
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImg = cardElement.querySelector(".card__image");
+  const cardLikedBtn = cardElement.querySelector(".card__like-btn");
+  const cardDeleteBtn = cardElement.querySelector(".card__delete_btn");
 
   cardNameEl.textContent = data.name;
   cardImg.src = data.link;
   cardImg.alt = data.name;
 
+  cardLikedBtn.addEventListener("click", () => {
+    cardLikedBtn.classList.toggle("card__like-btn-liked");
+  });
+
+  cardDeleteBtn.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
   return cardElement;
 }
 
-//
-// event listeners
-//
+/* 
 
-profileEditbutton.addEventListener("click", openModal);
+                                         For loops for template  
 
-closeButton.addEventListener("click", closeModal);
+*/
+
+initialCards.forEach((item) => {
+  const cardElement = getCardElement(item);
+  cardsList.prepend(cardElement);
+});
+
+/* 
+
+                                            Event Listeners  
+
+*/
+
+profileEditbutton.addEventListener("click", () => {
+  nameInput.value = profileNameElement.textContent;
+  jobInput.value = profileJobElement.textContent;
+  openModal(editProfileModal);
+});
+
+closeButton.addEventListener("click", () => {
+  closeModal(editProfileModal);
+});
+
+newPostButton.addEventListener("click", () => {
+  openModal(addCardModal);
+});
+
+addCardCloseBtn.addEventListener("click", () => {
+  closeModal(addCardModal);
+});
 
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 
-// for loop for template
-
-for (let i = 0; i < initialCards.length; i++) {
-  const cardElement = getCardElement(initialCards[i]);
-  cardsList.prepend(cardElement);
-}
+cardForm.addEventListener("submit", handleCardFormSubmit);
