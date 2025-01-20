@@ -9,11 +9,15 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  opacity: 0;
   padding: 0 20px;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .modal_opened {
+  transition-delay: 0s;
   visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
@@ -26,6 +30,31 @@
   position: relative;
 }
 
+.modal__container_type_preview {
+  padding: 0;
+  width: unset;
+  background-color: transparent;
+}
+
+.modal__img {
+  width: 100%;
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.modal__caption {
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 8px 0 0;
+  padding: 4px 8px;
+  width: fit-content;
+  border-radius: 8px;
+  background-color: #212121;
+}
+
 .modal__close-btn {
   position: absolute;
   top: 32px;
@@ -35,8 +64,15 @@
   padding: 0;
   border: none;
   cursor: pointer;
-  background-image: url("../images/Close-Icon.svg");
   background-color: #fff;
+  background-image: url("../images/Close-Icon.svg");
+}
+
+.modal__close-btn_preview {
+  background-image: url("../images/closeLight.svg");
+  background-color: transparent;
+  top: 0;
+  right: -52.5px;
 }
 
 .modal__title {

@@ -6,6 +6,10 @@
 
 const initialCards = [
   {
+    name: "Golden Gate bridge",
+    link: "  https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
+  {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
@@ -33,21 +37,20 @@ const initialCards = [
 
 /* 
 
-                                      Variables   
+                                     profile  Variables   
 
 */
-
-const profileEditbutton = document.querySelector(".profile__edit-btn");
-
 const editProfileModal = document.querySelector("#edit-profile-modal");
 
 const closeButton = editProfileModal.querySelector(".modal__close-btn");
+
+const profileEditbutton = document.querySelector(".profile__edit-btn");
 
 const newPostButton = document.querySelector(".profile__plus-btn");
 
 /* 
 
-                                     Edit form Variables   
+                                     Edit profile form Variables   
 
 */
 
@@ -76,8 +79,6 @@ const cardLinkInput = addCardModal.querySelector("#add-card-link-input");
 
 const cardNameInput = addCardModal.querySelector("#add-card-caption-input");
 
-// const likedImg = document.querySelector(".card__like-btn");
-
 /* 
 
                                       Template variables 
@@ -87,6 +88,20 @@ const cardNameInput = addCardModal.querySelector("#add-card-caption-input");
 const cardTemplate = document.querySelector("#card-template");
 
 const cardsList = document.querySelector(".cards__list");
+
+/* 
+
+                                      preview Modal Variables   
+
+*/
+
+const previewModal = document.querySelector("#preview-modal");
+
+const previewModalImg = previewModal.querySelector(".modal__img");
+
+const previewModalCaption = previewModal.querySelector(".modal__caption");
+
+const closePreviewBtn = previewModal.querySelector(".modal__close-btn_preview");
 
 /* 
 
@@ -120,7 +135,7 @@ function handleProfileFormSubmit(evt) {
 
 /* 
 
-                                          card form handle functions  
+                                        add card form handle functions  
 
 */
 
@@ -163,6 +178,13 @@ function getCardElement(data) {
     cardElement.remove();
   });
 
+  cardImg.addEventListener("click", () => {
+    previewModalImg.src = data.link;
+    previewModalImg.alt = data.name;
+    previewModalCaption.textContent = data.name;
+    openModal(previewModal);
+  });
+
   return cardElement;
 }
 
@@ -174,7 +196,7 @@ function getCardElement(data) {
 
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
-  cardsList.prepend(cardElement);
+  cardsList.append(cardElement);
 });
 
 /* 
@@ -200,6 +222,16 @@ newPostButton.addEventListener("click", () => {
 addCardCloseBtn.addEventListener("click", () => {
   closeModal(addCardModal);
 });
+
+closePreviewBtn.addEventListener("click", () => {
+  closeModal(previewModal);
+});
+
+/* 
+
+                                            Event form Listeners  
+
+*/
 
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 
