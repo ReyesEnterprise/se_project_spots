@@ -134,6 +134,11 @@
     padding: 12px;
   }
 
+  .modal__img {
+    width: 288px;
+    max-width: unset;
+  }
+
   .modal__title {
     font-size: 20px;
     margin: 12px 0 34px;
@@ -141,6 +146,11 @@
 
   .modal__close-btn {
     top: 12px;
+    right: 12px;
+  }
+
+  .modal__close-btn-type-small {
+    top: -29px;
     right: 12px;
   }
 
