@@ -75,6 +75,8 @@ const addCardCloseBtn = addCardModal.querySelector(".modal__close-btn");
 
 const cardForm = addCardModal.querySelector(".modal__form");
 
+const cardSubmitBtn = addCardModal.querySelector(".modal__submit-btn");
+
 const cardLinkInput = addCardModal.querySelector("#add-card-link-input");
 
 const cardNameInput = addCardModal.querySelector("#add-card-caption-input");
@@ -104,6 +106,43 @@ const previewModalCaption = previewModal.querySelector(".modal__caption");
 const closePreviewBtn = previewModal.querySelector(".modal__close-btn_preview");
 
 /* 
+
+                                        close Overlay functions  
+
+*/
+
+const closeOverlay = () => {
+  const modalList = Array.from(document.querySelectorAll(".modal"));
+  modalList.forEach((modalElement) => {
+    modalElement.addEventListener("click", (e) => {
+      if (
+        e.target === modalElement ||
+        e.target.classList.contains("modal__close-btn")
+      ) {
+        closeModal(modalElement);
+      }
+    });
+  });
+};
+
+closeOverlay();
+
+// closeOverlay  with escape key
+
+function closeEsc(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
+  }
+}
+
+//   event listener for the escape key
+
+document.addEventListener("keydown", closeEsc);
+
+/* 
+
+
 
                                         open / close functions  
 
@@ -147,9 +186,9 @@ function handleCardFormSubmit(evt) {
   };
   const cardEl = getCardElement(inputValues);
   cardsList.prepend(cardEl);
-  closeModal(addCardModal);
-  console.log(evt);
   evt.target.reset();
+  disableButton(cardSubmitBtn, settings);
+  closeModal(addCardModal);
 }
 
 /* 
@@ -211,24 +250,25 @@ initialCards.forEach((item) => {
 profileEditbutton.addEventListener("click", () => {
   nameInput.value = profileNameElement.textContent;
   jobInput.value = profileJobElement.textContent;
+  resetValidation(editProfileForm, [nameInput, jobInput], settings);
   openModal(editProfileModal);
 });
 
-profilecloseButton.addEventListener("click", () => {
-  closeModal(editProfileModal);
-});
+// profilecloseButton.addEventListener("click", () => {
+//   closeModal(editProfileModal);
+// });
 
 newPostButton.addEventListener("click", () => {
   openModal(addCardModal);
 });
 
-addCardCloseBtn.addEventListener("click", () => {
-  closeModal(addCardModal);
-});
+// addCardCloseBtn.addEventListener("click", () => {
+//   closeModal(addCardModal);
+// });
 
-closePreviewBtn.addEventListener("click", () => {
-  closeModal(previewModal);
-});
+// closePreviewBtn.addEventListener("click", () => {
+//   closeModal(previewModal);
+// });
 
 /* 
 
