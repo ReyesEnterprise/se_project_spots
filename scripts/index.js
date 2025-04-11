@@ -111,7 +111,7 @@ const closePreviewBtn = previewModal.querySelector(".modal__close-btn_preview");
 
 */
 
-const closeOverlay = () => {
+const setModalCloseListeners = () => {
   const modalList = Array.from(document.querySelectorAll(".modal"));
   modalList.forEach((modalElement) => {
     modalElement.addEventListener("click", (e) => {
@@ -125,7 +125,7 @@ const closeOverlay = () => {
   });
 };
 
-closeOverlay();
+setModalCloseListeners();
 
 // closeOverlay  with escape key
 
@@ -138,8 +138,6 @@ function closeEsc(evt) {
 
 //   event listener for the escape key
 
-document.addEventListener("keydown", closeEsc);
-
 /* 
 
 
@@ -150,10 +148,12 @@ document.addEventListener("keydown", closeEsc);
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeEsc);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeEsc);
 }
 
 /* 

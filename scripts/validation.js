@@ -27,7 +27,6 @@ const hideInputError = (formElement, inputElement, config) => {
 
 const checkInputValidity = (formElement, inputElement, config) => {
   console.log(inputElement.validationMessage);
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   if (!inputElement.validity.valid) {
     showInputError(
       formElement,
@@ -86,6 +85,10 @@ const setEventListeners = (formElement, config) => {
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
   toggleButtonState(inputList, buttonElement, config);
+
+  formElement.addEventListener("reset", () => {
+    disableButton(buttonElement, config);
+  });
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
