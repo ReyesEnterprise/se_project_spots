@@ -1,6 +1,6 @@
 //                         settings object
 
-const settings = {
+export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-btn",
@@ -32,7 +32,7 @@ const checkInputValidity = (formElement, inputElement, config) => {
       formElement,
       inputElement,
       inputElement.validationMessage,
-      config
+      config,
     );
   } else {
     hideInputError(formElement, inputElement, config);
@@ -58,7 +58,7 @@ const toggleButtonState = (inputList, buttonElement, config) => {
 };
 
 //                         disableButton function
-const disableButton = (buttonElement, config) => {
+export const disableButton = (buttonElement, config) => {
   buttonElement.setAttribute("disabled", true);
   buttonElement.classList.add(config.inactiveButtonClass);
 };
@@ -70,7 +70,7 @@ const enableButton = (buttonElement, config) => {
 
 //                         resetValidation function
 
-const resetValidation = (formElement, inputList, config) => {
+export const resetValidation = (formElement, inputList, config) => {
   inputList.forEach((inputElement) => {
     hideInputError(formElement, inputElement, config);
   });
@@ -80,7 +80,7 @@ const resetValidation = (formElement, inputList, config) => {
 
 const setEventListeners = (formElement, config) => {
   const inputList = Array.from(
-    formElement.querySelectorAll(config.inputSelector)
+    formElement.querySelectorAll(config.inputSelector),
   );
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
@@ -100,7 +100,7 @@ const setEventListeners = (formElement, config) => {
 
 //                         enableValidation function
 
-const enableValidation = (config) => {
+export const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
 
   formList.forEach((formElement) => {
@@ -108,4 +108,4 @@ const enableValidation = (config) => {
   });
 };
 
-enableValidation(settings);
+// enableValidation(settings);

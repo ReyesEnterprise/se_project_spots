@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- title -->
@@ -10,35 +10,49 @@
     <meta name="keywords" content="spots, Bessie" />
     <meta name="author" content="Albert Reyes" />
     <!-- links -->
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="shortcut icon" href="./favicon.ico" />
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/Logo.svg" alt="logo" class="header__logo" />
+        <!-- <img src="./images/Logo.svg" alt="logo" class="header__logo" /> -->
+        <img src="<%= require('./images/logo.svg') %>" alt="Logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img src="./images/avatar.jpg" alt="Bessie" class="profile__avatar" />
+          <!-- <img src="./images/avatar.jpg" alt="Bessie" class="profile__avatar" /> -->
+          <img
+            src="<%= require('./images/avatar.jpg') %>"
+            alt="profile__avatar"
+          />
           <div class="profile__content">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__discription">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img
+              <!-- <img
                 class="pencil-icon"
                 alt="pencil-icon"
                 src="./images/pencil.svg"
+              /> -->
+              <img
+                src="<%= require('./images/pencil.svg') %>"
+                alt="pencil-icon"
               />
+
               Edit Profile
             </button>
           </div>
           <button type="button" class="profile__plus-btn">
-            <img
+            <!-- <img
               class="plus-icon"
               alt="plus-icon"
               src="./images/plus-icon.svg"
+            /> -->
+            <img
+              src="<%= require('./images/plus-icon.svg') %>"
+              alt="plus-icon"
             />
+
             New Post
           </button>
         </section>
@@ -157,9 +171,6 @@
           <p class="modal__caption"></p>
         </div>
       </div>
-
-      <script defer src="./scripts/validation.js"></script>
-      <script defer src="./scripts/index.js"></script>
     </div>
   </body>
 </html>

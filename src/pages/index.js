@@ -1,3 +1,13 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import "../pages/index.css";
+import {
+  enableValidation,
+  settings,
+  disableButton,
+  resetValidation,
+} from "../scripts/validation.js";
+
 /* 
 
                                            Arrays  
@@ -128,6 +138,7 @@ const setModalCloseListeners = () => {
 setModalCloseListeners();
 
 // closeOverlay  with escape key
+//   event listener for the escape key
 
 function closeEsc(evt) {
   if (evt.key === "Escape") {
@@ -135,8 +146,6 @@ function closeEsc(evt) {
     closeModal(openedModal);
   }
 }
-
-//   event listener for the escape key
 
 /* 
 
@@ -279,3 +288,5 @@ newPostButton.addEventListener("click", () => {
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 
 cardForm.addEventListener("submit", handleCardFormSubmit);
+
+enableValidation(settings);
