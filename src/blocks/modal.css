@@ -11,7 +11,9 @@
   visibility: hidden;
   opacity: 0;
   padding: 0 20px;
-  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  transition:
+    visibility 0s linear 0.5s,
+    opacity 0.5s linear;
 }
 
 .modal_opened {
@@ -30,10 +32,25 @@
   position: relative;
 }
 
+.modal__form-delete {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal__container_delete {
+  padding: 32px 20px;
+  font-size: 24px;
+}
+
 .modal__container_type_preview {
   padding: 0;
   width: unset;
   background-color: transparent;
+}
+.modal__title-center {
+  font-size: 24px !important;
+  text-align: center;
 }
 
 .modal__img {
@@ -64,8 +81,14 @@
   padding: 0;
   border: none;
   cursor: pointer;
-  background-color: #fff;
+  background-color: transparent;
   background-image: url("../images/Close-Icon.svg");
+}
+
+.modal__close-btn_delete {
+  top: 0;
+  right: -40px;
+  background-image: url("../images/closeLight.svg");
 }
 
 .modal__close-btn_preview {
@@ -146,6 +169,40 @@
   opacity: 50%;
 }
 
+.modal__delete-btn {
+  background-color: #ff6565;
+  color: #212121;
+  border: none;
+  cursor: pointer;
+  padding: 18px 58px;
+  border-radius: 8px;
+  font-family: "poppings", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.modal__delete-btn:hover {
+  background-color: #ff3333;
+}
+
+.modal__cancel-btn {
+  background-color: white;
+  color: #212121;
+  cursor: pointer;
+  padding: 18px 58px;
+  border-radius: 8px;
+  font-family: "poppings", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.modal__cancel-btn:hover {
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
 @media screen and (max-width: 627px) {
   .modal {
     padding: 0 10px;
@@ -153,6 +210,11 @@
 
   .modal__container {
     padding: 12px;
+  }
+
+  .modal__form-delete {
+    flex-direction: column;
+    gap: 12px;
   }
 
   .modal__img {
@@ -168,6 +230,10 @@
   .modal__close-btn {
     top: 12px;
     right: 12px;
+  }
+
+  .modal__close-btn_delete {
+    top: -40px;
   }
 
   .modal__close-btn-type-small {

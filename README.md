@@ -17,8 +17,6 @@ and mobile, thanks Triple Ten I had a Blast learing and over coming new skills
 - Grid
 - Resposive design
 
-
-
 **Figma**
 
 - [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
@@ -27,6 +25,11 @@ and mobile, thanks Triple Ten I had a Blast learing and over coming new skills
 
 - [link to GitHub Pages](https://reyesenterprise.github.io/se_project_spots/)
 
-**Discription video**
+## Project Pitch Videos
 
-- [link of discription](https://drive.google.com/file/d/1hx_cIoAKYpdPpzpTFomJTihJMe2za3zq/view?usp=sharing)
+Check out these videos, where I describe my project
+and some challenges I faced while building it:
+
+- [First Video Title](https://drive.google.com/file/d/1hx_cIoAKYpdPpzpTFomJTihJMe2za3zq/view?usp=sharing)
+
+- [Second Video Title](https://drive.google.com/file/d/1pYeB-ihWezinjPu2wwKZcuU9JjIwxrl3/view?usp=drive_link)
