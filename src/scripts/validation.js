@@ -84,7 +84,10 @@ const setEventListeners = (formElement, config) => {
   );
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
-  toggleButtonState(inputList, buttonElement, config);
+  if (buttonElement) {
+    // if the button has been found
+    toggleButtonState(inputList, buttonElement, config);
+  }
 
   formElement.addEventListener("reset", () => {
     disableButton(buttonElement, config);
